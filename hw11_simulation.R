@@ -26,7 +26,6 @@ return(shoe)
 
 run_simulation<- function(n_trials, n, p, cutoff){
   Pvalue<-replicate(n_trials, model_select(n,p,cutoff))
-  rnum<-abs(rnorm(1))
   Pvalue<- ifelse(is.na(Pvalue)==TRUE, ifelse(abs(rnorm(1,0,0.5))>1, (abs(rnorm(1))-1), abs(rnorm(1)) ), Pvalue)
   return(hist(Pvalue))
 }
